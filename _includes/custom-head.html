@@ -4,6 +4,25 @@ Placeholder to allow defining custom head, in principle, you can add anything he
 1. Head over to https://realfavicongenerator.net/ to add your own favicons.
 2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
 {% endcomment %}
+
+{%- comment -%}
+Custom head content for the theme.
+Users can override this file or configure favicon in _config.yml
+{%- endcomment -%}
+
+{%- if site.favicon -%}
+<link rel="icon" type="image/x-icon" href="{{ site.favicon | relative_url }}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | relative_url }}">
+{%- endif -%}
+
+{%- if site.apple_touch_icon -%}
+<link rel="apple-touch-icon" href="{{ site.apple_touch_icon | relative_url }}">
+{%- endif -%}
+
+{%- if site.site_icon -%}
+<meta name="apple-mobile-web-app-title" content="{{ site.site_icon }}">
+{%- endif -%}
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">

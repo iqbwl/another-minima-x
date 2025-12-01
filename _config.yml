@@ -12,6 +12,11 @@ url: ""
 description: >
   A demo site showcasing Another Minima X Jekyll Theme - a clean, modern theme with glassmorphism header and GitHub-style markdown.
 
+# Favicon and icons (optional)
+favicon: /favicon.ico
+# apple_touch_icon: /apple-touch-icon.png
+# site_icon: "Your Site Name"
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
