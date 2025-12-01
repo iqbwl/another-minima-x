@@ -2,6 +2,8 @@
 
 A clean, modern Jekyll theme with glassmorphism header and GitHub-style markdown rendering. Perfect for personal blogs and digital notebooks.
 
+**[Live Demo](https://iqbwl.github.io/another-minima-x/)** | **[GitHub](https://github.com/iqbwl/another-minima-x)**
+
 ## Features
 
 - 🎨 **Modern Design**: Glassmorphism header with blur effects
@@ -13,11 +15,25 @@ A clean, modern Jekyll theme with glassmorphism header and GitHub-style markdown
 - 📊 **RSS Feed**: Automatic feed generation
 - 🗺️ **Sitemap**: Automatic sitemap generation
 
-## Installation
+## Quick Start
 
-### Using Remote Theme (Recommended)
+### 1. Create a New Jekyll Site
 
-1. **Add to your `_config.yml`:**
+```bash
+# Create a new Jekyll site
+jekyll new my-blog
+cd my-blog
+```
+
+### 2. Install the Theme
+
+Add this to your `Gemfile`:
+
+```ruby
+gem "jekyll-remote-theme"
+```
+
+Add this to your `_config.yml`:
 
 ```yaml
 remote_theme: iqbwl/another-minima-x
@@ -29,7 +45,29 @@ plugins:
   - jekyll-sitemap
 ```
 
-2. **Add to your `Gemfile`:**
+### 3. Install Dependencies
+
+```bash
+bundle install
+```
+
+### 4. Run Your Site
+
+```bash
+bundle exec jekyll serve
+```
+
+Visit `http://localhost:4000` to see your site!
+
+---
+
+## Installation Methods
+
+### Method 1: Remote Theme (Recommended)
+
+This is the easiest way to use the theme. Perfect for GitHub Pages.
+
+**Step 1:** Add to your `Gemfile`:
 
 ```ruby
 gem "jekyll-remote-theme"
@@ -38,21 +76,38 @@ gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
 ```
 
-3. **Install and run:**
+**Step 2:** Add to your `_config.yml`:
+
+```yaml
+remote_theme: iqbwl/another-minima-x
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+```
+
+**Step 3:** Install and run:
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-### Fork or Clone
+### Method 2: Fork or Clone
 
-You can also fork this repository or clone it directly to have full control:
+For full control and customization:
 
 ```bash
-git clone https://github.com/iqbwl/another-minima-x.git
-cd another-minima-x
+# Clone the repository
+git clone https://github.com/iqbwl/another-minima-x.git my-blog
+cd my-blog
+
+# Install dependencies
 bundle install
+
+# Run the site
 bundle exec jekyll serve
 ```
 
