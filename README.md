@@ -15,37 +15,39 @@ A clean, modern Jekyll theme with glassmorphism header and GitHub-style markdown
 
 ## Installation
 
-### Option 1: As a Gem (Recommended)
+### Using Remote Theme (Recommended)
 
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "another-minima-x"
-```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-theme: another-minima-x
-```
-
-Then execute:
-
-```bash
-bundle install
-```
-
-### Option 2: Remote Theme (GitHub Pages)
-
-Add this line to your Jekyll site's `_config.yml`:
+1. **Add to your `_config.yml`:**
 
 ```yaml
 remote_theme: iqbwl/another-minima-x
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 ```
 
-### Option 3: Fork or Clone
+2. **Add to your `Gemfile`:**
 
-You can also fork this repository or clone it directly:
+```ruby
+gem "jekyll-remote-theme"
+gem "jekyll-feed"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+```
+
+3. **Install and run:**
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+### Fork or Clone
+
+You can also fork this repository or clone it directly to have full control:
 
 ```bash
 git clone https://github.com/iqbwl/another-minima-x.git

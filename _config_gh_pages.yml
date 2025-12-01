@@ -1,11 +1,16 @@
+# GitHub Pages specific configuration
+# This file is used when deploying to GitHub Pages
+
 # Site metadata
 title: Another Minima X Jekyll Theme
 subtitle: A clean, modern Jekyll theme
 author:
-  name: Your Name
-  email: your.email@example.com
+  name: Iqbwl
+  email: iqbwl@abc.web.id
 
-url: ""  # Leave empty for local development
+# GitHub Pages URL
+url: "https://iqbwl.github.io"
+baseurl: "/another-minima-x"
 
 # Site description for SEO
 description: >
@@ -15,6 +20,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-remote-theme
+
+# Use the theme itself for demo
+remote_theme: iqbwl/another-minima-x
 
 # Front matter defaults
 defaults:
@@ -24,7 +33,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Your Name"
+      author: "Iqbwl"
       categories: ["uncategorized"]
       comments: true
   # Pages defaults
@@ -33,7 +42,7 @@ defaults:
       type: "pages"
     values:
       layout: "page"
-      author: "Your Name"
+      author: "Iqbwl"
 
 # SCSS compilation settings
 sass:
@@ -50,10 +59,6 @@ header_pages:
   - title: GitHub
     url: https://github.com/iqbwl/another-minima-x
     external: true
-
-# Disqus comments (optional - add your shortname)
-# disqus:
-#   shortname: your-disqus-shortname
 
 # Files and folders to exclude from build
 exclude:
