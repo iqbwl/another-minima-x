@@ -1,0 +1,75 @@
+# Site metadata
+title: Another Minima X Jekyll Theme
+subtitle: A clean, modern Jekyll theme
+author:
+  name: Your Name
+  email: your.email@example.com
+
+url: "http://localhost:4000"
+
+# Site description for SEO
+description: >
+  A demo site showcasing Another Minima X Jekyll Theme - a clean, modern theme with glassmorphism header and GitHub-style markdown.
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Front matter defaults
+defaults:
+  # Posts defaults
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+      categories: ["uncategorized"]
+      comments: true
+  # Pages defaults
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      author: "Your Name"
+
+# SCSS compilation settings
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+  style: compressed
+
+permalink: /:slug
+
+# Navigation menu
+header_pages:
+  - title: About
+    url: /about
+  - title: GitHub
+    url: https://github.com/iqbwl/another-minima-x
+    external: true
+
+# Disqus comments (optional - add your shortname)
+# disqus:
+#   shortname: your-disqus-shortname
+
+# Files and folders to exclude from build
+exclude:
+  - .gitignore
+  - .git/
+  - .jekyll-cache/
+  - .sass-cache/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles/
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - another-minima-x.gemspec
+
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"

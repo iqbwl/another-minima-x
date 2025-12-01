@@ -1,0 +1,20 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ '/' | relative_url }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-content">
+      {%- if site.title %}
+      <div class="footer-info">
+        <div class="footer-author">
+          <span class="p-name">&copy; {{ 'now' | date: "%Y" }} - {{ site.title | escape }}</span>
+        </div>
+        <div class="footer-stack">
+          <span>Built with</span>
+          <img src="/static/icon/jekyll.svg" alt="Jekyll" class="stack-icon">
+          <span>Jekyll {{ jekyll.version }}</span>
+        </div>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</footer>
