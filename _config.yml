@@ -5,7 +5,8 @@ author:
   name: Your Name
   email: your.email@example.com
 
-url: ""  # Leave empty for local development
+# URL will be set by GitHub Pages automatically
+url: ""
 
 # Site description for SEO
 description: >
