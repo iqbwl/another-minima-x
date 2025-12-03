@@ -99,3 +99,7 @@ Feel free to customize this theme to match your style. You can:
 - Configure the navigation menu
 
 Happy blogging! 🎉
+
+## Credits
+
+This theme is based on the [Minima](https://github.com/jekyll/minima) theme, enhanced with new features and a modern design.

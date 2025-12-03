@@ -19,7 +19,7 @@ The theme uses SCSS variables for easy color customization. Create a file `asset
 ---
 ---
 
-@import "iqbwl-jekyll-theme";
+@import "another-minima-x";
 
 // Custom color overrides
 $primary-color: #your-color;
@@ -97,7 +97,7 @@ Create `assets/css/style.scss` in your site:
 ---
 ---
 
-@import "iqbwl-jekyll-theme";
+@import "another-minima-x";
 
 // Your custom CSS
 .custom-class {

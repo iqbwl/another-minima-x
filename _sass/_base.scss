@@ -137,14 +137,14 @@ a {
 
     &:hover {
         color: #004499;
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     .social-media-list &:hover {
         text-decoration: none;
 
         .username {
-            text-decoration: underline;
+            text-decoration: none;
         }
     }
 }

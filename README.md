@@ -264,7 +264,7 @@ The theme is available as open source under the terms of the [MIT License](LICEN
 
 ## Credits
 
-Created by [Iqbwl](https://iqbwl.com)
+Created by [Iqbwl](https://iqbwl.com). Based on the [Minima](https://github.com/jekyll/minima) theme by Jekyll.
 
 ## Support
 
