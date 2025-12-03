@@ -20,20 +20,37 @@
 
       <div class="trigger">
         {%- for item in site.header_pages -%}
-        {%- if item.url -%}
-        {%- comment -%} New format: object with title and url {%- endcomment -%}
-        {%- if item.external -%}
-        <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | escape }}</a>
-        {%- else -%}
-        <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
-        {%- endif -%}
-        {%- else -%}
-        {%- comment -%} Old format: just filename {%- endcomment -%}
-        {%- assign my_page = site.pages | where: "path", item | first -%}
-        {%- if my_page.title -%}
-        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-        {%- endif -%}
-        {%- endif -%}
+          {%- if item.children -%}
+            <div class="dropdown">
+              <button class="dropbtn">{{ item.title | escape }}
+                <svg class="dropdown-caret" viewBox="0 0 24 24" width="16px" height="16px">
+                  <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+                </svg>
+              </button>
+              <div class="dropdown-content">
+                {%- for child in item.children -%}
+                  {%- if child.external -%}
+                    <a href="{{ child.url }}" target="_blank" rel="noopener">{{ child.title | escape }}</a>
+                  {%- else -%}
+                    <a href="{{ child.url | relative_url }}">{{ child.title | escape }}</a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- elsif item.url -%}
+            {%- comment -%} New format: object with title and url {%- endcomment -%}
+            {%- if item.external -%}
+              <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | escape }}</a>
+            {%- else -%}
+              <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+            {%- endif -%}
+          {%- else -%}
+            {%- comment -%} Old format: just filename {%- endcomment -%}
+            {%- assign my_page = site.pages | where: "path", item | first -%}
+            {%- if my_page.title -%}
+              <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+            {%- endif -%}
+          {%- endif -%}
         {%- endfor -%}
       </div>
     </nav>

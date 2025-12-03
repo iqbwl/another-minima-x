@@ -9,7 +9,7 @@ comments: true
 
 # Markdown Styling Guide
 
-This post demonstrates the GitHub-style markdown rendering included in the Iqbwl Jekyll Theme.
+This post demonstrates the GitHub-style markdown rendering included in the Another Minima X Jekyll Theme.
 
 ## Headings
 

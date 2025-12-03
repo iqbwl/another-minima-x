@@ -8,6 +8,7 @@ A clean, modern Jekyll theme with glassmorphism header and GitHub-style markdown
 
 - 🎨 **Modern Design**: Glassmorphism header with blur effects
 - 📝 **GitHub-Style Markdown**: Beautiful markdown rendering matching GitHub's style
+- 🔽 **Dropdown Menus**: Support for nested navigation menus
 - 🎯 **Clean Typography**: Inter font for excellent readability
 - 📱 **Responsive**: Works perfectly on all devices
 - 💬 **Disqus Integration**: Built-in comment system support
@@ -138,6 +139,12 @@ header_pages:
   - title: External Link
     url: https://example.com
     external: true
+  - title: More
+    children:
+      - title: Archive
+        url: /archive
+      - title: Tags
+        url: /tags
 
 # Disqus comments (optional)
 disqus:
@@ -187,6 +194,13 @@ header_pages:
   - title: Portfolio
     url: https://portfolio.example.com
     external: true  # Opens in new tab
+  - title: Resources
+    children:
+      - title: Documentation
+        url: /docs
+      - title: GitHub
+        url: https://github.com
+        external: true
 ```
 
 ### Disqus Comments

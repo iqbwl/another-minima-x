@@ -176,7 +176,7 @@ pre,
 code {
     font-family: $code-font-family;
     font-size: 0.9em;
-    background-color: #f6f8fa;
+    background-color: $code-background-color;
     border-radius: 4px;
 }
 
@@ -196,14 +196,7 @@ pre {
 }
 
 .highlight {
-    border-radius: 6px;
-    background: #f6f8fa;
-    padding: 1rem;
     @extend %vertical-rhythm;
-
-    .highlighter-rouge & {
-        background: #f6f8fa;
-    }
 }
 
 /**

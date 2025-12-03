@@ -9,7 +9,7 @@ comments: true
 
 # Customizing Your Theme
 
-The Iqbwl Jekyll Theme is designed to be easily customizable. Here's how you can make it your own!
+The Another Minima X Jekyll Theme is designed to be easily customizable. Here's how you can make it your own!
 
 ## Changing Colors
 
@@ -70,6 +70,13 @@ header_pages:
   - title: Portfolio
     url: https://portfolio.example.com
     external: true
+  - title: Resources
+    children:
+      - title: Documentation
+        url: /docs
+      - title: GitHub
+        url: https://github.com
+        external: true
 ```
 
 ## Layout Customization

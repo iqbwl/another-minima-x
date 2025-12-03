@@ -19,6 +19,10 @@ Let's explore some of the features this theme offers:
 
 The theme uses the **Inter** font family, which provides excellent readability across all devices. Text is carefully sized and spaced for comfortable reading.
 
+### Dropdown Menus
+
+The theme supports nested navigation menus, allowing you to organize your links hierarchically in the header.
+
 ### Code Highlighting
 
 The theme includes syntax highlighting for code blocks:
