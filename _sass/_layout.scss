@@ -361,9 +361,10 @@
 
 .footer-info {
     display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .footer-author {

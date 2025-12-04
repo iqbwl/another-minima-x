@@ -58,8 +58,11 @@ header_pages:
     external: true
   - title: More
     children:
-      - title: Archive
+      - title: Iqbwl Archive
         url: https://iqbwl.github.io
+        external: true
+      - title: Abc.web.id
+        url: https://abc.web.id
         external: true
       - title: Example External
         url: https://example.com
