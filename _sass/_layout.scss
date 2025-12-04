@@ -5,8 +5,8 @@
  */
 .site-header {
     border-top: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid var(--header-border);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: sticky;
@@ -22,7 +22,7 @@
     line-height: 1.5;
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: #000 !important;
+    color: var(--text-color) !important;
     margin-bottom: 0;
     float: left;
 
@@ -40,11 +40,14 @@
     position: absolute;
     top: 0.35rem;
     right: $spacing-unit * .5;
-    background-color: $background-color;
-    border: 1px solid $border-color-01;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     text-align: right;
     line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     .nav-trigger {
         display: none;
@@ -83,7 +86,7 @@
     }
 
     .page-link {
-        color: #555;
+        color: var(--text-muted);
         font-weight: 500;
         transition: color 0.2s ease;
         line-height: $base-line-height;
@@ -98,7 +101,7 @@
         }
 
         &:hover {
-            color: #000;
+            color: var(--text-color);
         }
     }
 
@@ -115,7 +118,7 @@
             margin-left: 20px;
             background: none;
             border: none;
-            color: #555;
+            color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 500;
             cursor: pointer;
@@ -128,7 +131,7 @@
 
         .dropdown-content {
             display: none; // Hidden by default
-            background-color: rgba(0, 0, 0, 0.03);
+            background-color: var(--dropdown-hover);
             margin: 5px 0;
             border-radius: 4px;
 
@@ -136,11 +139,11 @@
                 display: block;
                 padding: 8px 15px 8px 10px;
                 font-size: 0.9rem;
-                color: #666;
+                color: var(--text-muted);
                 text-decoration: none;
 
                 &:hover {
-                    color: #000;
+                    color: var(--text-color);
                 }
             }
         }
@@ -184,7 +187,6 @@
         .dropdown {
             display: inline-block;
             position: relative;
-            margin-left: 20px;
             text-align: left; // Reset alignment
 
             &:hover .dropdown-content {
@@ -195,7 +197,7 @@
             }
 
             &:hover .dropbtn {
-                color: #000;
+                color: var(--text-color);
             }
 
             .dropbtn {
@@ -220,12 +222,12 @@
                 position: absolute;
                 left: 0; // Left align
                 right: auto;
-                background-color: rgba(255, 255, 255, 0.9);
+                background-color: var(--dropdown-bg);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
                 min-width: 180px;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                border: 1px solid rgba(0, 0, 0, 0.08);
+                border: 1px solid var(--border-color);
                 border-radius: 8px;
                 z-index: 1001;
                 padding: 6px;
@@ -258,7 +260,7 @@
                 }
 
                 a {
-                    color: #444;
+                    color: var(--text-muted);
                     padding: 8px 12px;
                     text-decoration: none;
                     display: block;
@@ -269,8 +271,8 @@
                     font-weight: 400;
 
                     &:hover {
-                        background-color: rgba(0, 0, 0, 0.04);
-                        color: #000;
+                        background-color: var(--dropdown-hover);
+                        color: var(--text-color);
                     }
                 }
             }
@@ -279,12 +281,72 @@
 }
 
 /**
+ * Theme Toggle Button
+ */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    border-radius: 4px;
+    position: relative;
+
+    &:hover {
+        color: var(--text-color);
+        background-color: var(--dropdown-hover);
+    }
+
+    .sun-icon,
+    .moon-icon {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        position: absolute;
+    }
+
+    .sun-icon {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    .moon-icon {
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+
+    &.dark-mode {
+        .sun-icon {
+            opacity: 0;
+            transform: rotate(180deg);
+        }
+
+        .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+    }
+
+    @media screen and (max-width: $on-medium) {
+        order: -1;
+        margin-right: auto;
+    }
+
+    @media screen and (min-width: $on-medium) {
+        order: 999;
+        margin-left: 5px;
+    }
+}
+
+/**
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: #fafafa;
-    color: #666;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--footer-bg);
+    color: var(--text-muted);
     padding: 0.75rem 0;
     font-size: 0.9rem;
 }
@@ -309,7 +371,7 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: var(--text-color);
 }
 
 .footer-author .separator {
@@ -321,7 +383,7 @@
     align-items: center;
     gap: 0.35rem;
     font-size: 0.7rem;
-    color: #888;
+    color: var(--text-muted);
 }
 
 .footer-stack .separator {
@@ -373,7 +435,7 @@
 }
 
 .post-meta {
-    color: #888;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -381,15 +443,15 @@
     display: block;
     @include relative-font-size(1.5);
     font-weight: 600;
-    color: #111;
+    color: var(--text-color);
 
     &:hover {
-        color: #0066cc;
+        color: var(--link-color);
         text-decoration: none;
     }
 
     &:visited {
-        color: #111;
+        color: var(--text-color);
     }
 }
 

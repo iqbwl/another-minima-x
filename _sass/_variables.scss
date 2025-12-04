@@ -18,30 +18,65 @@ $on-laptop: 800px !default;
 $on-medium: $on-palm !default;
 $on-large: $on-laptop !default;
 
-// Colors - Light mode (classic skin)
-$brand-color: #828282 !default;
-$brand-color-light: lighten($brand-color, 40%) !default;
-$brand-color-dark: darken($brand-color, 25%) !default;
+// CSS Custom Properties for Theme Support
+:root {
+  // Light Mode - Nordic Palette
+  --bg-color: #ECEFF4;
+  --text-color: #2E3440;
+  --text-muted: #4C566A;
+  --accent-color: #5E81AC;
+  --border-color: #D8DEE9;
+  --code-bg: #E5E9F0;
+  
+  // Derived colors for light mode
+  --header-bg: rgba(236, 239, 244, 0.8);
+  --header-border: rgba(216, 222, 233, 0.5);
+  --footer-bg: #E5E9F0;
+  --link-color: #5E81AC;
+  --link-hover: #81A1C1;
+  --dropdown-bg: rgba(236, 239, 244, 0.95);
+  --dropdown-hover: rgba(94, 129, 172, 0.1);
+}
 
-$site-title-color: $brand-color-dark !default;
+[data-theme="dark"] {
+  // Dark Mode - Nordic Palette
+  --bg-color: #2E3440;
+  --text-color: #ECEFF4;
+  --text-muted: #D8DEE9;
+  --accent-color: #81A1C1;
+  --border-color: #434C5E;
+  --code-bg: #3B4252;
+  
+  // Derived colors for dark mode
+  --header-bg: rgba(46, 52, 64, 0.8);
+  --header-border: rgba(67, 76, 94, 0.5);
+  --footer-bg: #3B4252;
+  --link-color: #81A1C1;
+  --link-hover: #88C0D0;
+  --dropdown-bg: rgba(46, 52, 64, 0.95);
+  --dropdown-hover: rgba(129, 161, 193, 0.1);
+}
 
-$text-color: #1f2328 !default;
-$background-color: #ffffff !default;
-$code-background-color: #f6f8fa !default;
+// SCSS Variables using CSS Custom Properties
+$text-color: var(--text-color) !default;
+$background-color: var(--bg-color) !default;
+$code-background-color: var(--code-bg) !default;
+$border-color-01: var(--border-color) !default;
+$border-color-02: var(--border-color) !default;
+$border-color-03: var(--text-muted) !default;
 
-$link-base-color: #2a7ae2 !default;
-$link-visited-color: darken($link-base-color, 15%) !default;
-$link-hover-color: $text-color !default;
+$brand-color: var(--text-muted) !default;
+$site-title-color: var(--text-color) !default;
 
-$border-color-01: $brand-color-light !default;
-$border-color-02: lighten($brand-color, 35%) !default;
-$border-color-03: $brand-color-dark !default;
+$link-base-color: var(--link-color) !default;
+$link-visited-color: var(--accent-color) !default;
+$link-hover-color: var(--link-hover) !default;
 
-$table-text-color: lighten($text-color, 18%) !default;
-$table-zebra-color: lighten($brand-color, 46%) !default;
-$table-header-bg-color: lighten($brand-color, 43%) !default;
-$table-header-border: lighten($brand-color, 37%) !default;
-$table-border-color: $border-color-01 !default;
+$table-text-color: var(--text-color) !default;
+$table-zebra-color: var(--code-bg) !default;
+$table-header-bg-color: var(--code-bg) !default;
+$table-header-border: var(--border-color) !default;
+$table-border-color: var(--border-color) !default;
 
 // Table alignment
 $table-text-align: left !default;

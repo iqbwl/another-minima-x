@@ -2,6 +2,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    // Apply theme immediately to prevent flash
+    (function () {
+      const THEME_KEY = 'theme-preference';
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <title>
     {%- if page.url == "/" -%}
     {{ site.title }} - {{ site.subtitle }}
@@ -15,5 +27,7 @@
   {%- feed_meta -%}
 
   {%- include custom-head.html -%}
+
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
 
 </head>

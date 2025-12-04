@@ -123,11 +123,11 @@
   box-sizing: content-box;
   overflow: hidden;
   background: transparent;
-  border-bottom: 1px solid #d1d9e0b3;
+  border-bottom: 1px solid var(--border-color);
   height: .25em;
   padding: 0;
   margin: 1.5rem 0;
-  background-color: #d1d9e0;
+  background-color: var(--border-color);
   border: 0;
 }
 
@@ -310,8 +310,8 @@
 .markdown-body blockquote {
   margin: 0;
   padding: 0 1em;
-  color: #59636e;
-  border-left: .25em solid #d1d9e0;
+  color: var(--text-muted);
+  border-left: .25em solid var(--accent-color);
 }
 
 .markdown-body ul,
@@ -567,7 +567,7 @@
 .markdown-body table th,
 .markdown-body table td {
   padding: 6px 13px;
-  border: 1px solid #d1d9e0;
+  border: 1px solid var(--border-color);
 }
 
 .markdown-body table td>:last-child {
@@ -575,12 +575,12 @@
 }
 
 .markdown-body table tr {
-  background-color: #ffffff;
-  border-top: 1px solid #d1d9e0b3;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: var(--code-bg);
 }
 
 .markdown-body table img {

@@ -60,6 +60,7 @@ header_pages:
     children:
       - title: Archive
         url: https://iqbwl.github.io
+        external: true
       - title: Example External
         url: https://example.com
         external: true
