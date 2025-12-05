@@ -12,9 +12,9 @@ $base-line-height: 1.5 !default;
 $spacing-unit: 30px !default;
 
 // Layout
-$content-width: 800px !default;
+$content-width: 1000px !default;
 $on-palm: 600px !default;
-$on-laptop: 800px !default;
+$on-laptop: 1000px !default;
 $on-medium: $on-palm !default;
 $on-large: $on-laptop !default;
 
@@ -27,7 +27,7 @@ $on-large: $on-laptop !default;
   --accent-color: #5E81AC;
   --border-color: #D8DEE9;
   --code-bg: #E5E9F0;
-  
+
   // Derived colors for light mode
   --header-bg: rgba(236, 239, 244, 0.8);
   --header-border: rgba(216, 222, 233, 0.5);
@@ -46,7 +46,7 @@ $on-large: $on-laptop !default;
   --accent-color: #81A1C1;
   --border-color: #434C5E;
   --code-bg: #3B4252;
-  
+
   // Derived colors for dark mode
   --header-bg: rgba(46, 52, 64, 0.8);
   --header-border: rgba(67, 76, 94, 0.5);

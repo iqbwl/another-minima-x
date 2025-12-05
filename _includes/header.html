@@ -8,22 +8,6 @@
 
     {%- if titles_size > 0 -%}
     <nav class="site-nav">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
-          <circle cx="12" cy="12" r="5" fill="currentColor"/>
-          <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
-          <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
-          <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
-          <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
-        </svg>
-      </button>
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger">
         <span class="menu-icon">
@@ -36,37 +20,37 @@
 
       <div class="trigger">
         {%- for item in site.header_pages -%}
-          {%- if item.children -%}
-            <div class="dropdown">
-              <button class="dropbtn">{{ item.title | escape }}
-                <svg class="dropdown-caret" viewBox="0 0 24 24" width="16px" height="16px">
-                  <path d="M7 10l5 5 5-5z" fill="currentColor"/>
-                </svg>
-              </button>
-              <div class="dropdown-content">
-                {%- for child in item.children -%}
-                  {%- if child.external -%}
-                    <a href="{{ child.url }}" target="_blank" rel="noopener">{{ child.title | escape }}</a>
-                  {%- else -%}
-                    <a href="{{ child.url | relative_url }}">{{ child.title | escape }}</a>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-            </div>
-          {%- elsif item.url -%}
-            {%- comment -%} New format: object with title and url {%- endcomment -%}
-            {%- if item.external -%}
-              <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | escape }}</a>
+        {%- if item.children -%}
+        <div class="dropdown">
+          <button class="dropbtn">{{ item.title | escape }}
+            <svg class="dropdown-caret" viewBox="0 0 24 24" width="16px" height="16px">
+              <path d="M7 10l5 5 5-5z" fill="currentColor" />
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            {%- for child in item.children -%}
+            {%- if child.external -%}
+            <a href="{{ child.url }}" target="_blank" rel="noopener">{{ child.title | escape }}</a>
             {%- else -%}
-              <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+            <a href="{{ child.url | relative_url }}">{{ child.title | escape }}</a>
             {%- endif -%}
-          {%- else -%}
-            {%- comment -%} Old format: just filename {%- endcomment -%}
-            {%- assign my_page = site.pages | where: "path", item | first -%}
-            {%- if my_page.title -%}
-              <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-            {%- endif -%}
-          {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- elsif item.url -%}
+        {%- comment -%} New format: object with title and url {%- endcomment -%}
+        {%- if item.external -%}
+        <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | escape }}</a>
+        {%- else -%}
+        <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+        {%- endif -%}
+        {%- else -%}
+        {%- comment -%} Old format: just filename {%- endcomment -%}
+        {%- assign my_page = site.pages | where: "path", item | first -%}
+        {%- if my_page.title -%}
+        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        {%- endif -%}
+        {%- endif -%}
         {%- endfor -%}
       </div>
     </nav>
