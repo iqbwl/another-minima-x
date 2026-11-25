@@ -20,41 +20,65 @@ $on-large: $on-laptop !default;
 
 // CSS Custom Properties for Theme Support
 :root {
+  color-scheme: light;
+
   // Light Mode - Nordic Palette
   --bg-color: #ECEFF4;
+  --surface-elevated: #F7F9FC;
   --text-color: #2E3440;
   --text-muted: #4C566A;
-  --accent-color: #5E81AC;
+  --accent-color: #3B5F8A;
   --border-color: #D8DEE9;
   --code-bg: #E5E9F0;
 
   // Derived colors for light mode
-  --header-bg: rgba(236, 239, 244, 0.8);
-  --header-border: rgba(216, 222, 233, 0.5);
+  --header-bg: rgba(236, 239, 244, 0.85);
+  --header-border: rgba(216, 222, 233, 0.85);
   --footer-bg: #E5E9F0;
-  --link-color: #5E81AC;
-  --link-hover: #81A1C1;
-  --dropdown-bg: rgba(236, 239, 244, 0.95);
-  --dropdown-hover: rgba(94, 129, 172, 0.1);
+  --link-color: #3B5F8A;
+  --link-hover: #2E4D73;
+  --dropdown-bg: #F7F9FC;
+  --dropdown-hover: rgba(59, 95, 138, 0.1);
+  --mark-bg: #fff8c5;
+  --mark-text: #1f2328;
+
+  // Syntax highlighting (accessible on light --code-bg)
+  --syntax-error: #A53B45;
+  --syntax-string: #4F772D;
+  --syntax-keyword: #7E4F77;
+  --syntax-func: #2B6CB0;
+  --syntax-var: #A65232;
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
+
   // Dark Mode - Nordic Palette
   --bg-color: #2E3440;
+  --surface-elevated: #363D4D;
   --text-color: #ECEFF4;
   --text-muted: #D8DEE9;
-  --accent-color: #81A1C1;
+  --accent-color: #88C0D0;
   --border-color: #434C5E;
   --code-bg: #3B4252;
 
   // Derived colors for dark mode
-  --header-bg: rgba(46, 52, 64, 0.8);
-  --header-border: rgba(67, 76, 94, 0.5);
+  --header-bg: rgba(46, 52, 64, 0.85);
+  --header-border: rgba(67, 76, 94, 0.85);
   --footer-bg: #3B4252;
-  --link-color: #81A1C1;
-  --link-hover: #88C0D0;
-  --dropdown-bg: rgba(46, 52, 64, 0.95);
-  --dropdown-hover: rgba(129, 161, 193, 0.1);
+  --link-color: #88C0D0;
+  --link-hover: #9AD0DF;
+  --dropdown-bg: #363D4D;
+  --dropdown-hover: rgba(136, 192, 208, 0.12);
+  --mark-bg: rgba(235, 203, 139, 0.25);
+  --mark-text: #ECEFF4;
+
+  // Syntax highlighting (Nord Dark)
+  --syntax-error: #BF616A;
+  --syntax-string: #A3BE8C;
+  --syntax-keyword: #B48EAD;
+  --syntax-func: #88C0D0;
+  --syntax-var: #D08770;
 }
 
 // SCSS Variables using CSS Custom Properties

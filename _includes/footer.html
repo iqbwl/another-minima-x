@@ -3,21 +3,32 @@
 
   <div class="wrapper">
     <div class="footer-content">
-      {%- if site.title %}
-      <div class="footer-info">
-        <div class="footer-author">
-          <span class="p-name">&copy; {{ 'now' | date: "%Y" }} - {{ site.title | escape }}</span>
-        </div>
+      <div class="footer-brand">
+        {%- if site.title -%}
+        <p class="footer-copyright">
+          <span class="p-name">&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}</span>
+        </p>
+        {%- endif -%}
+        {%- if site.subtitle -%}
+        <p class="footer-subtitle">{{ site.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="footer-meta">
+        <nav class="footer-links" aria-label="Footer">
+          <a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a>
+          <span class="separator" aria-hidden="true">·</span>
+          <a href="#top">Back to top</a>
+        </nav>
+
         <div class="footer-stack">
           <span>Built with</span>
-          <img src="{{ '/assets/icon/jekyll.svg' | relative_url }}" alt="Jekyll" class="stack-icon">
+          <img src="{{ '/assets/icon/jekyll.svg' | relative_url }}" alt="Jekyll" width="14" height="14" class="stack-icon">
           <span>Jekyll {{ jekyll.version }}</span>
-          <span class="separator">•</span>
-          <span>Using <a href="https://github.com/iqbwl/another-minima-x" target="_blank"
-              rel="noopener noreferrer">Another Minima X</a></span>
+          <span class="separator" aria-hidden="true">·</span>
+          <span>Theme: <a href="https://github.com/iqbwl/another-minima-x" target="_blank" rel="noopener noreferrer">Another Minima X</a></span>
         </div>
       </div>
-      {%- endif %}
     </div>
   </div>
 </footer>

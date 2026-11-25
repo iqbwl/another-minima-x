@@ -31,8 +31,8 @@ layout: base
           {{ post.title | escape }}
         </a>
       </h3>
-      {%- if true -%}
-      {{ post.excerpt | strip_html }}
+      {%- if site.show_excerpts != false -%}
+      <p class="post-excerpt">{{ post.excerpt | strip_html | strip }}</p>
       {%- endif -%}
     </li>
     {%- endfor -%}

@@ -124,6 +124,27 @@ h6 {
 }
 
 /**
+ * Interactive cursor & keyboard focus baseline
+ */
+a[href],
+button:not(:disabled),
+summary,
+select,
+label[for] {
+    cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/**
  * Links
  */
 a {

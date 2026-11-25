@@ -11,26 +11,15 @@
 // Import GitHub markdown CSS
 @import "github-markdown";
 
-// Syntax highlighting
+// Syntax highlighting (Rouge)
 .highlight {
-
-    // Comment
-    .c {
+    // Comments
+    .c, .c1, .cm {
         color: var(--text-muted);
         font-style: italic;
     }
 
-    .c1 {
-        color: var(--text-muted);
-        font-style: italic;
-    }
-
-    .cm {
-        color: var(--text-muted);
-        font-style: italic;
-    }
-
-    .cp {
+    .cp, .gu {
         color: var(--text-muted);
         font-weight: bold;
     }
@@ -41,18 +30,18 @@
         font-style: italic;
     }
 
-    // Error
+    .go, .gp, .w {
+        color: var(--text-muted);
+    }
+
+    // Errors & Diffs
     .err {
-        color: #BF616A;
+        color: var(--syntax-error);
         font-weight: bold;
     }
 
-    .gd {
-        color: #BF616A;
-    }
-
-    .gr {
-        color: #BF616A;
+    .gd, .gr, .gt {
+        color: var(--syntax-error);
     }
 
     .gh {
@@ -61,238 +50,57 @@
     }
 
     .gi {
-        color: #A3BE8C;
-    }
-
-    .go {
-        color: var(--text-muted);
-    }
-
-    .gp {
-        color: var(--text-muted);
+        color: var(--syntax-string);
     }
 
     .gs {
         font-weight: bold;
     }
 
-    .gu {
-        color: var(--text-muted);
+    // Keywords & Numbers
+    .k, .kc, .kd, .kp, .kr, .kt, .kn,
+    .m, .mb, .mf, .mh, .mi, .mo {
+        color: var(--syntax-keyword);
+    }
+
+    .nd {
+        color: var(--syntax-keyword);
         font-weight: bold;
     }
 
-    .gt {
-        color: #BF616A;
-    }
-
-    // Keyword
-    .k {
-        color: #B48EAD;
-    }
-
-    .kc {
-        color: #B48EAD;
-    }
-
-    .kd {
-        color: #B48EAD;
-    }
-
-    .kp {
-        color: #B48EAD;
-    }
-
-    .kr {
-        color: #B48EAD;
-    }
-
-    .kt {
-        color: #B48EAD;
-    }
-
-    .kn {
-        color: #B48EAD;
-    }
-
-    .o {
+    // Operators & Attributes
+    .o, .ow, .op {
         color: var(--accent-color);
         font-weight: bold;
     }
 
-    .ow {
-        color: var(--accent-color);
-        font-weight: bold;
-    }
-
-    // Operator
-    .op {
-        color: var(--accent-color);
-        font-weight: bold;
-    }
-
-    // Literal
-    .l {
+    .l, .na {
         color: var(--accent-color);
     }
 
-    .ld {
-        color: #A3BE8C;
+    // Strings & Tags
+    .ld, .nt,
+    .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss {
+        color: var(--syntax-string);
     }
 
-    .m {
-        color: #B48EAD;
-    }
-
-    .mb {
-        color: #B48EAD;
-    }
-
-    .mf {
-        color: #B48EAD;
-    }
-
-    .mh {
-        color: #B48EAD;
-    }
-
-    .mi {
-        color: #B48EAD;
-    }
-
-    .mo {
-        color: #B48EAD;
-    }
-
-    // String
-    .s {
-        color: #A3BE8C;
-    }
-
-    .sb {
-        color: #A3BE8C;
-    }
-
-    .sc {
-        color: #A3BE8C;
-    }
-
-    .sd {
-        color: #A3BE8C;
-    }
-
-    .s2 {
-        color: #A3BE8C;
-    }
-
-    .se {
-        color: #A3BE8C;
-    }
-
-    .sh {
-        color: #A3BE8C;
-    }
-
-    .si {
-        color: #A3BE8C;
-    }
-
-    .sx {
-        color: #A3BE8C;
-    }
-
-    .sr {
-        color: #A3BE8C;
-    }
-
-    .s1 {
-        color: #A3BE8C;
-    }
-
-    .ss {
-        color: #A3BE8C;
-    }
-
-    // Name
+    // Names & Variables
     .n {
         color: var(--text-color);
     }
 
-    .na {
-        color: var(--accent-color);
+    .nb, .bp, .no, .ni, .nn, .vc, .vg, .vi, .nv {
+        color: var(--syntax-var);
     }
 
-    .nb {
-        color: #D08770;
-    }
-
-    .bp {
-        color: #D08770;
-    }
-
-    .nc {
-        color: #D08770;
+    .nc, .ne, .nl {
+        color: var(--syntax-var);
         font-weight: bold;
     }
 
-    .no {
-        color: #D08770;
-    }
-
-    .nd {
-        color: #B48EAD;
+    // Functions
+    .nf, .fm {
+        color: var(--syntax-func);
         font-weight: bold;
-    }
-
-    .ni {
-        color: #D08770;
-    }
-
-    .ne {
-        color: #D08770;
-        font-weight: bold;
-    }
-
-    .nf {
-        color: #88C0D0;
-        font-weight: bold;
-    }
-
-    .fm {
-        color: #88C0D0;
-        font-weight: bold;
-    }
-
-    .nl {
-        color: #D08770;
-        font-weight: bold;
-    }
-
-    .nn {
-        color: #D08770;
-    }
-
-    .nt {
-        color: #A3BE8C;
-    }
-
-    .vc {
-        color: #D08770;
-    }
-
-    .vg {
-        color: #D08770;
-    }
-
-    .vi {
-        color: #D08770;
-    }
-
-    .nv {
-        color: #D08770;
-    }
-
-    // Text
-    .w {
-        color: var(--text-muted);
     }
 }

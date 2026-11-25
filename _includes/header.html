@@ -1,59 +1,99 @@
 <header class="site-header">
-
-  <div class="wrapper">
+  <div class="wrapper header-inner">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-
-    {%- if titles_size > 0 -%}
-    <nav class="site-nav">
-      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-      <label for="nav-trigger">
-        <span class="menu-icon">
-          <svg viewBox="0 0 18 15" width="18px" height="15px">
-            <path
-              d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
-          </svg>
-        </span>
-      </label>
-
-      <div class="trigger">
-        {%- for item in site.header_pages -%}
-        {%- if item.children -%}
-        <div class="dropdown">
-          <button class="dropbtn">{{ item.title | escape }}
-            <svg class="dropdown-caret" viewBox="0 0 24 24" width="16px" height="16px">
-              <path d="M7 10l5 5 5-5z" fill="currentColor" />
-            </svg>
-          </button>
-          <div class="dropdown-content">
-            {%- for child in item.children -%}
-            {%- if child.external -%}
-            <a href="{{ child.url }}" target="_blank" rel="noopener">{{ child.title | escape }}</a>
-            {%- else -%}
-            <a href="{{ child.url | relative_url }}">{{ child.title | escape }}</a>
-            {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </div>
-        {%- elsif item.url -%}
-        {%- comment -%} New format: object with title and url {%- endcomment -%}
-        {%- if item.external -%}
-        <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title | escape }}</a>
-        {%- else -%}
-        <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
-        {%- endif -%}
-        {%- else -%}
-        {%- comment -%} Old format: just filename {%- endcomment -%}
-        {%- assign my_page = site.pages | where: "path", item | first -%}
-        {%- if my_page.title -%}
-        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-        {%- endif -%}
-        {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </nav>
+    {%- assign has_nav = false -%}
+    {%- if titles_size > 0 or site.header_pages.size > 0 -%}
+      {%- assign has_nav = true -%}
     {%- endif -%}
+
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
+      {{ site.title | escape }}
+    </a>
+
+    <div class="header-actions">
+      {%- if has_nav -%}
+      <nav class="site-nav" aria-label="Primary">
+        <div id="site-nav-menu" class="nav-menu">
+          {%- for item in page_paths -%}
+          {%- if item.children -%}
+          <div class="dropdown">
+            <button type="button" class="dropbtn" aria-expanded="false">
+              <span>{{ item.title | escape }}</span>
+              <svg class="dropdown-caret" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path d="M7 10l5 5 5-5z" fill="currentColor" />
+              </svg>
+            </button>
+            <div class="dropdown-content">
+              {%- for child in item.children -%}
+              {%- if child.external -%}
+              <a href="{{ child.url }}" target="_blank" rel="noopener noreferrer">{{ child.title | escape }}</a>
+              {%- else -%}
+              {%- assign child_slash = child.url | append: '/' -%}
+              {%- assign child_active = false -%}
+              {%- if page.url == child.url or page.url == child_slash -%}
+                {%- assign child_active = true -%}
+              {%- endif -%}
+              <a href="{{ child.url | relative_url }}"{% if child_active %} class="is-active" aria-current="page"{% endif %}>{{ child.title | escape }}</a>
+              {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+          {%- elsif item.url -%}
+          {%- if item.external -%}
+          <a class="page-link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title | escape }}</a>
+          {%- else -%}
+          {%- assign item_slash = item.url | append: '/' -%}
+          {%- assign item_active = false -%}
+          {%- if page.url == item.url or page.url == item_slash -%}
+            {%- assign item_active = true -%}
+          {%- endif -%}
+          <a class="page-link{% if item_active %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if item_active %} aria-current="page"{% endif %}>{{ item.title | escape }}</a>
+          {%- endif -%}
+          {%- else -%}
+          {%- assign my_page = site.pages | where: "path", item | first -%}
+          {%- if my_page.title -%}
+          {%- assign my_page_active = false -%}
+          {%- if page.url == my_page.url -%}
+            {%- assign my_page_active = true -%}
+          {%- endif -%}
+          <a class="page-link{% if my_page_active %} is-active{% endif %}" href="{{ my_page.url | relative_url }}"{% if my_page_active %} aria-current="page"{% endif %}>{{ my_page.title | escape }}</a>
+          {%- endif -%}
+          {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </nav>
+      {%- endif -%}
+
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" fill="currentColor" />
+          <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" />
+          <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+          <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" />
+          <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+        </svg>
+      </button>
+
+      {%- if has_nav -%}
+      <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Open navigation menu">
+        <svg class="menu-icon-open" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg class="menu-icon-close" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+          <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      {%- endif -%}
+    </div>
   </div>
 </header>

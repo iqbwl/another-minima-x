@@ -13,18 +13,29 @@ The Another Minima X Jekyll Theme is designed to be easily customizable. Here's 
 
 ## Changing Colors
 
-The theme uses SCSS variables for easy color customization. Create a file `assets/css/custom.scss` and override the variables:
+The theme uses CSS custom properties for light and dark mode colors. Create a file `assets/css/style.scss` and override the CSS variables after importing `"main"`:
 
 ```scss
 ---
 ---
 
-@import "another-minima-x";
+// Override SCSS !default variables BEFORE importing "main"
+$content-width: 1000px;
+
+@import "main";
 
 // Custom color overrides
-$primary-color: #your-color;
-$background-color: #your-bg-color;
-$text-color: #your-text-color;
+:root {
+  --bg-color: #ECEFF4;
+  --text-color: #2E3440;
+  --accent-color: #5E81AC;
+}
+
+[data-theme="dark"] {
+  --bg-color: #2E3440;
+  --text-color: #ECEFF4;
+  --accent-color: #81A1C1;
+}
 ```
 
 ## Modifying the Header
@@ -97,11 +108,11 @@ Create `assets/css/style.scss` in your site:
 ---
 ---
 
-@import "another-minima-x";
+@import "main";
 
 // Your custom CSS
 .custom-class {
-  color: red;
+  color: var(--accent-color);
 }
 ```
 

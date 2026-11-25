@@ -225,16 +225,28 @@ comments: true
 
 ### Colors and Styles
 
-The theme uses SCSS variables for easy customization. Override these in your own `assets/css/style.scss`:
+The theme uses CSS custom properties (for light/dark mode colors) and SCSS `!default` variables (for typography and layout). Override them in your own `assets/css/style.scss`:
 
 ```scss
 ---
 ---
 
-@import "another-minima-x";
+// Optional: override SCSS !default variables BEFORE importing "main"
+$base-font-family: 'Inter', sans-serif;
+$content-width: 1000px;
 
-// Your custom overrides
-$primary-color: #your-color;
+@import "main";
+
+// Override theme colors via CSS custom properties
+:root {
+  --accent-color: #5E81AC;
+  --link-color: #5E81AC;
+}
+
+[data-theme="dark"] {
+  --accent-color: #81A1C1;
+  --link-color: #81A1C1;
+}
 ```
 
 ### Fonts
